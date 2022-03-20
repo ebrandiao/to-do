@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import {Navbar} from './components/Navbar';
+import {Route, Routes} from 'react-router-dom';
+import {Home} from './pages/Home';
+import {AddTodo} from './components/AddTodo';
+
+import {TodoList} from './components/TodoList';
+import {useState} from 'react';
+import axios from 'axios';
+
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  const getTodos = async () => {
+    const {data} = await axios.get('https://lab-to-do-api.herokuapp.com/todo/')
+    setTodos(data)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/addtodo' element={<AddTodo />} />
+        <Route path='/todolist' element={<TodoList todos={todos} getTodos={getTodos} />} />
+      </Routes>
+
     </div>
   );
 }
