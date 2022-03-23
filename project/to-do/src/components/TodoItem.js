@@ -1,8 +1,8 @@
-import React from 'react'
 
-const TodoItem = () => {
+const TodoItem = ({title, completed, _id}) => {
+
   return (
-    <div>TodoItem</div>
+    <div>Detalhes da tarefa {title}, {completed}, {_id}</div>
   )
 }
 export default TodoItem;
