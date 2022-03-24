@@ -9,6 +9,7 @@ Projeto desenvolvido em Javascript
 - Back end desenvolvido em javascript
 - DATABASE - Mongo
 - Front-end desenvolvido com o JAVASCRIPT / Bootstrap
+- Pubicação da API no Heroku https://lab-to-do-api.herokuapp.com/todo
 
 > Dificuldades encontradas:
 > Back-end: a maior dificuldade em back-end foi na conexão com o banco de dados publicado na nuvem
